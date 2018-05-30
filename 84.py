@@ -1,3 +1,66 @@
+class Solution(object):
+    def largestRectangleArea(self, heights):
+        """
+        :type heights: List[int]
+        :rtype: int
+        """
+        # use the solution: monotonous stack
+        heights = [0] + heights + [0]
+        stack = []
+        slen = 0
+        Max = 0
+        index = 0
+        continueflag = 0 # .........
+        while index < len(heights): 
+            if (slen == 0) or (heights[stack[slen - 1]] <= heights[index]): 
+                if stack[slen - 1] + 1 == 
+                stack = stack + [index]
+                slen = slen + 1
+                index = index + 1
+                pass
+            else: 
+                height = heights[stack[slen - 1]]
+                del stack[slen - 1]
+                slen = slen - 1
+                curr = stack[slen - 1] + 1
+                Max = max(Max, (index - curr)*height)
+                pass
+            pass
+        return Max
+    
+    
+'''
+class Solution(object):
+    def largestRectangleArea(self, heights):
+        """
+        :type heights: List[int]
+        :rtype: int
+        """
+        # use the solution: monotonous stack
+        heights = [0] + heights + [0]
+        stack = []
+        slen = 0
+        Max = 0
+        for index in range(len(heights)): 
+            while 1: 
+                if (slen == 0) or (heights[stack[slen - 1]] <= heights[index]): 
+                    stack = stack + [index]
+                    slen = slen + 1
+                    break
+                    pass
+                height = heights[stack[slen - 1]]
+                del stack[slen - 1]
+                slen = slen - 1
+                curr = stack[slen - 1] + 1
+                Max = max(Max, (index - curr)*height)
+                pass
+            #print Max, stack
+            pass
+        return Max
+        
+'''
+
+'''
 class TreeNode(object): 
     def __init__(self, val, index, left, right):
         self.val = val
@@ -5,8 +68,6 @@ class TreeNode(object):
         self.left = left
         self.right = right
         pass
-        
-        
     
 class Tree(object):
     def __init__(self):
@@ -17,11 +78,11 @@ class Tree(object):
         node = TreeNode(val, index, None, None)
         if self.rootNode == None: 
             self.rootNode = node
-            return
+            return True
         else: 
             temp = self.rootNode
             parent = temp
-            while temp.val < node.val: 
+            while temp.val <= node.val: 
                 if temp.index > node.index: 
                     parent = temp
                     temp = temp.left
@@ -38,37 +99,36 @@ class Tree(object):
             if temp == None: 
                 if parent.index > node.index: 
                     parent.left = node
-                    return
+                    return True
                 else: 
                     parent.right = node
-                    return
+                    return True
                 pass
             else: 
-                #............. re-construct????
-    
-
-class Solution(object):
-    def getMax(self, sortTree, i, j): 
-        # sortTree: tree of (value, heights index), left, right
-        # get Max from [i, j)
-        if i >= j: 
-            return 0
-        Minheight = sortheights[0][0]
-        Max0 = (j-i)*Minheight
-        k = sortheights[0][1]
-        subsort1 = []
-        subsort2 = []
-        for index in range(len(sortheights)-1): 
-            curr = index + 1
-            if sortheights[curr][1] < k: 
-                subsort1.append(sortheights[curr])
-                pass
-            else: 
-                subsort2.append(sortheights[curr])
+                print "Incorrect case! should not occur temp.val > node.val:" + str(node.index) + ':' + str(node.val)
+                return False
                 pass
             pass
-        Max1 = self.getMax(subsort1, i, k)
-        Max2 = self.getMax(subsort2, k+1, j)
+        pass
+    
+    def printTree(self, node, depth): 
+        if node == None: 
+            return
+        self.printTree(node.left, depth+1)
+        print depth*' ' + str(node.index) + ':' + str(node.val)
+        self.printTree(node.right, depth+1)
+        return
+
+class Solution(object):
+    def getMax(self, sortTreeNode, i, j): 
+        # sortTreeNode: tree node of (value, index), left, right
+        # get Max from [i, j)
+        if (i >= j) or (sortTreeNode == None): 
+            return 0
+        Minheight = sortTreeNode.val
+        Max0 = (j-i)*Minheight
+        Max1 = self.getMax(sortTreeNode.left, i, sortTreeNode.index)
+        Max2 = self.getMax(sortTreeNode.right, sortTreeNode.index+1, j)
         return max(Max0, Max1, Max2)
     
     def largestRectangleArea(self, heights):
@@ -78,12 +138,17 @@ class Solution(object):
         """
         sortheights = []
         for index in range(len(heights)): 
-            sortheights.append([heights[index], index, 0, 0])
+            sortheights.append([heights[index], index])
             pass
         sortheights.sort()
-        return self.getMax(sortheights, 0, len(heights))
-
-    
+        # print sortheights
+        indextree = Tree()
+        for curr in sortheights: 
+            indextree.insert(curr[0], curr[1])
+            pass
+        # indextree.printTree(indextree.rootNode, 0)
+        return self.getMax(indextree.rootNode, 0, len(heights))
+'''
 
 '''
 class Solution(object):
