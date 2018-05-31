@@ -10,10 +10,8 @@ class Solution(object):
         slen = 0
         Max = 0
         index = 0
-        continueflag = 0 # .........
         while index < len(heights): 
             if (slen == 0) or (heights[stack[slen - 1]] <= heights[index]): 
-                if stack[slen - 1] + 1 == 
                 stack = stack + [index]
                 slen = slen + 1
                 index = index + 1
@@ -27,6 +25,53 @@ class Solution(object):
                 pass
             pass
         return Max
+
+
+'''
+class Solution(object):
+    def largestRectangleArea(self, heights):
+        """
+        :type heights: List[int]
+        :rtype: int
+        """
+        # use the solution: monotonous stack
+        heights = [-1] + heights + [-1]
+        stack = []
+        slen = 0
+        Max = 0
+        index = 0
+        #print heights
+        continueflag = 1
+        while index < len(heights): 
+            if (slen == 0) or (heights[stack[slen - 1]] < heights[index]): 
+                stack = stack + [index]
+                slen = slen + 1
+                index = index + 1
+                continueflag = 1
+                pass
+            elif heights[stack[slen - 1]] == heights[index]:
+                if (index == stack[slen - 1] + continueflag): 
+                    index = index + 1
+                    continueflag = continueflag + 1
+                    pass
+                else: 
+                    stack = stack + [index]
+                    slen = slen + 1
+                    index = index + 1
+                    continueflag = 1
+                    pass
+            else: 
+                height = heights[stack[slen - 1]]
+                del stack[slen - 1]
+                slen = slen - 1
+                curr = stack[slen - 1] + 1
+                Max = max(Max, (index - curr + 1 - continueflag)*height)
+                continueflag = 1
+                pass
+            #print Max, stack
+            pass
+        return Max
+'''
     
     
 '''
