@@ -4,5 +4,5 @@ record interesting questions..
 84, init
 
 126, there 3 solutions, python is the basic one, then the self-defined structure one, the last is the middle one. 
-
+407, check 1st then 2nd. 
 
