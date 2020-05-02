@@ -15,6 +15,8 @@
  *     public void clean();
  * }
  */
+
+// also see: http://www.noteanddata.com/leetcode-489-Robot-Room-Cleaner-java-solution-note.html
 class Solution {
     private int[][] dirs = {{-1,0}, {0,1}, {1,0}, {0,-1}};
     public void cleanRoom(Robot robot) {
