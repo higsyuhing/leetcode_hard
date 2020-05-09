@@ -7,7 +7,7 @@ record interesting questions..
 407, check 1st then 2nd. 
 1192, the cycle checking is not easy to be honest.. 
 124,329 [option], what the hell is the best solution? tricky speed-up
-992, check solution. 
+992,76 check solution, sliding window! 
 
 
 
