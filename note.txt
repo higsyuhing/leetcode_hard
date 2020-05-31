@@ -14,6 +14,6 @@ record interesting questions..
 336 minor, have no idea about it..
 68,76 engineering work
 10,72 check this dp solution. both of them. 
-
+1163, impressed!! this is algorithm difference..
 
 
