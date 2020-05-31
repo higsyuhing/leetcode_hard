@@ -13,6 +13,7 @@ record interesting questions..
 239 minor, the other solution..
 336 minor, have no idea about it..
 68,76 engineering work
-10, check this dp solution for regular exp mataching. 
+10,72 check this dp solution. both of them. 
+
 
 
