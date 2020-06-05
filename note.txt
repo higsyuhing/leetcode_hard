@@ -16,4 +16,6 @@ record interesting questions..
 10,72,97 check this dp solution. all of them. 
 1163, impressed!! this is algorithm difference..
 214, hmmmmm..check solution..
+745, smart input manipulation
+
 
