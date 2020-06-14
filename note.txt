@@ -19,3 +19,14 @@ record interesting questions..
 745, smart input manipulation
 425, check solution and complexity analysis
 839, take a look about several DSU questions.. 
+4, soooo good solution.. 
+315, smart.. 
+410, ... I don't think it's that hard to make me have nothing in mind.. 
+887, provided solution is soo good.. 
+1044, other solution and Rabin-Karp's algorithm
+862, ... no idea again.. so weak.. 
+363, ...  :(
+1235, ..
+
+
+
