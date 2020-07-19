@@ -28,6 +28,11 @@ record interesting questions..
 363, ...  :(
 1235, ..
 335, very interesting.. 
-
-
-
+85, dp
+1240, hard. 
+140, dfs+mem
+312, sol niubi
+403, sol
+1340, check sol! 
+123, O(n) sol.. 
+188, check sol.. 
