@@ -36,3 +36,16 @@ record interesting questions..
 1340, check sol! 
 123, O(n) sol.. 
 188, check sol.. 
+
+------ 2022 spring
+
+1938, tire+dfs... check sol.. 
+
+
+
+
+
+
+
+
+
