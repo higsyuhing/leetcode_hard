@@ -40,7 +40,7 @@ record interesting questions..
 ------ 2022 spring
 
 1938, tire+dfs... check sol.. 
-
+1857, realize that something can be optimize, also data structure knowledge about topological sort.. 
 
 
 
