@@ -42,7 +42,9 @@ record interesting questions..
 1938, tire+dfs... check sol.. 
 1857, realize that something can be optimize, also data structure knowledge about topological sort.. 
 
+------ 2022 summer
 
+913, revisit this question.. "mouse and cat".. 
 
 
 
