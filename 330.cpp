@@ -22,16 +22,16 @@ public:
 
 class Solution {
 public:
-    void init_havingset(vector<int>& nums, set<int>& havingset, int i, int curr){
-        if (i == nums.size()) return; 
+    void init_havingset(vector<int>& nums, set<int>& havingset, int i, int curr, int end){
+        if (i == end) return; 
         
         // we don't add the current: 
-        init_havingset(nums, havingset, i+1, curr); 
+        init_havingset(nums, havingset, i+1, curr, end); 
 
         // we add the current: 
         curr += nums[i]; 
         havingset.insert(curr); 
-        init_havingset(nums, havingset, i+1, curr); 
+        init_havingset(nums, havingset, i+1, curr, end); 
     }
 
     void printset(set<int>& oneset){
@@ -56,7 +56,18 @@ public:
         set<int> havingset; 
         set<int> missingset; 
 
-        init_havingset(nums, havingset, 0, 0); 
+        // we don't need nums ele > n
+        int l, r; // [l, r)
+        l = 0; r = nums.size(); 
+        while (l < (r-1)){
+            int m = (l+r)/2; 
+            if (nums[m] > n)
+                r = m; 
+            else
+                l = m; 
+        }
+        init_havingset(nums, havingset, 0, 0, r); 
+
         long currmax = *(havingset.rbegin()); 
         for (int i = 1; i <= (currmax+1); i++){
             if (havingset.count(i) == 0)
