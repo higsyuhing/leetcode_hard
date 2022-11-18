@@ -19,6 +19,7 @@ public:
 /*
 // get part of it.. but not there..... 
 
+
 class Solution {
 public:
     void init_havingset(vector<int>& nums, set<int>& havingset, int i, int curr){
@@ -56,23 +57,37 @@ public:
         set<int> missingset; 
 
         init_havingset(nums, havingset, 0, 0); 
-        int currmax = *(havingset.rbegin()); 
+        long currmax = *(havingset.rbegin()); 
         for (int i = 1; i <= (currmax+1); i++){
             if (havingset.count(i) == 0)
                 missingset.insert(i); 
         }
 
-        int nextmax, target, ret; 
+        long nextmax, target, ret; 
+        bool fastflag = false; // <-- optimization 3
         ret = 0; 
         while (1){
             // cout << "loop begin\n"; 
             // printset(havingset); 
             // printset(missingset); 
 
-            target = *(missingset.begin()); 
+            if (fastflag == false)
+                target = *(missingset.begin()); 
+            else{ // <-- optimization 3
+                // target == (currmax + 1)
+                currmax = currmax + target; 
+                target = currmax + 1; 
+                ret++; 
+                if (target > n) break; 
+                continue; 
+            }
             if (target > n) break; 
+            if (target == (currmax + 1)){
+                fastflag = true; 
+                continue; 
+            }
             missingset.erase(target); 
-            for (int i = 1; i < target; i++) // optimization
+            for (int i = 1; i < target; i++) // optimization 2
                 havingset.erase(i); 
             ret++; 
 
@@ -85,7 +100,7 @@ public:
             // cout << "target: " << target << endl; 
             // printset(missingset); 
 
-            // check all elements in missingset: // optimization
+            // check all elements in missingset: // optimization 1
             // is (missingset[i] - target) in the havingset. 
             vector<int> tmp; 
             for (auto it = missingset.begin(); it != missingset.end(); it++){
@@ -112,5 +127,6 @@ public:
         return ret; 
     }
 };
+
 
 */
